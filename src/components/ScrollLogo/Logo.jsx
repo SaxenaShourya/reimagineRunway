@@ -9,7 +9,12 @@ export default function Model(props) {
   const { nodes } = useGLTF("/models/logo.glb");
   const { viewport } = useThree();
   const scrollY = useScrollAnimation(); // Use the scroll position
-  const scale = Math.min(viewport.width / 50, 1);
+
+  const isSmallScreen = viewport.width < 768; // You can adjust the breakpoint as needed
+  const fixedScale = 0.2; // Adjust this value based on your design
+  const responsiveScale = Math.min(viewport.width / 50, 1);
+
+  const scale = isSmallScreen ? fixedScale : responsiveScale;
 
   useFrame(() => {
     if (group.current) {
@@ -23,7 +28,7 @@ export default function Model(props) {
       ref={group}
       {...props}
       dispose={null}
-      rotation={[0, Math.PI, 0]}
+      rotation={[0, 1, 0]}
       scale={[scale, scale, scale]}
     >
       <group name="Scene">

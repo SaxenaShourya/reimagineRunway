@@ -8,7 +8,10 @@ const Scene = () => {
   const [activeMenu, setActiveMenu] = useState(null);
   return (
     <>
-      <div className="fixed top-0 h-full w-full z-[1] mix-blend-difference">
+      <div
+        className="top-0 h-full w-full z-[1] mix-blend-difference"
+        style={{ position: activeMenu !== null ? "fixed" : "" }}
+      >
         {activeMenu !== null ? (
           <motion.div
             className="w-full h-full"

@@ -11,7 +11,7 @@ const items = [
 const Structure = ({ setActiveMenu }) => {
   return (
     <section
-      className="relative h-screen w-full mix-blend-difference z-10 py-[30vh]"
+      className="relative h-full md:h-screen w-full mix-blend-difference z-10 py-[2vh] sm:py-[5vh] md:py-[20vh] lg:py-[30vh]"
       onMouseLeave={() => {
         setActiveMenu(null);
       }}

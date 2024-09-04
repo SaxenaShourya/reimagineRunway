@@ -1,11 +1,16 @@
 import Lenis from "lenis";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import HeroSection from "./components/HeroSection";
 import { AnimatePresence } from "framer-motion";
 import PreLoader from "./components/PreLoader";
 import ShaderImageGallery from "./components/ShaderImageGallery";
 import CustomCursor from "./components/CustomCursor";
 import ScrollLogo from "./components/ScrollLogo";
+import Footer from "./components/Footer/Footer";
+import { DivOrigami } from "./components/PartnersSection/Partners";
+import { useScroll } from "framer-motion";
+import Fifth from "./components/FifthSection/Fifth";
+import Menu from "./components/Menu";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -28,6 +33,12 @@ const App = () => {
 
     requestAnimationFrame(raf);
   }, []);
+
+  const container = useRef();
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ["start start", "end end"],
+  });
   return (
     <>
       <AnimatePresence mode="wait">
@@ -37,7 +48,12 @@ const App = () => {
       <CustomCursor />
       <ShaderImageGallery />
       <ScrollLogo />
-      <div className="h-screen w-full"></div>
+      <Menu />
+      <div className="translate-y-[5%] smtranslate-y-[10%] md:translate-y-[20%] lg:translate-y-[30%]">
+        <DivOrigami />
+        <Fifth />
+        <Footer />
+      </div>
     </>
   );
 };

@@ -1,8 +1,25 @@
 import React, { useEffect, useState } from "react";
 
 const CustomCursor = () => {
+  const [isVisible, setIsVisible] = useState(true);
   const [position, setPosition] = useState({ top: 0, left: 0 });
   const [isClicked, setIsClicked] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+    };
+
+    handleResize(); // Check on initial load
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -22,6 +39,10 @@ const CustomCursor = () => {
       document.removeEventListener("click", handleClick);
     };
   }, []);
+
+  if (!isVisible) {
+    return null;
+  }
 
   return (
     <div

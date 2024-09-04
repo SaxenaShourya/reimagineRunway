@@ -106,7 +106,7 @@ const Exp = () => {
 
             <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center z-10 text-center">
               <motion.h1
-                className="text-4xl font-bold text-dark capitalize translate-y-[20vh]"
+                className="text-sm sm:text-2xl md:text-[2vw] font-bold text-dark capitalize translate-y-[20vh]"
                 initial="hidden"
                 animate="visible"
               >
