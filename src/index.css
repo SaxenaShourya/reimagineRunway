@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "ClashDisplay";
+  src: url("/fonts/ClashDisplay/ClashDisplay-Regular.ttf");
+}
+@font-face {
+  font-family: "ClashDisplay-Bold";
+  src: url("/fonts/ClashDisplay/ClashDisplay-Bold.ttf");
+}
+@font-face {
+  font-family: "ClashDisplay-Medium";
+  src: url("/fonts/ClashDisplay/ClashDisplay-Medium.ttf");
+}
+
+@font-face {
+  font-family: "Geist";
+  src: url("/fonts/Geist/Geist-Regular.ttf");
+}
+@font-face {
+  font-family: "Geist-Bold";
+  src: url("/fonts/Geist/Geist-Bold.ttf");
+}
+@font-face {
+  font-family: "Geist-Medium";
+  src: url("/fonts/Geist/Geist-Medium.ttf");
+}
+
+@layer base {
+  /* Hiding Scrollbar */
+  html::-webkit-scrollbar {
+    display: none;
+  }
+  html {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* LENIS */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-smooth iframe {
+    pointer-events: none;
+  }
+
+  /* Base Styles */
+  body {
+    @apply scroll-smooth bg-dark text-light;
+  }
+  p,
+  a {
+    @apply font-geist;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-clash-display;
+  }
+
+  /* selection */
+  /* ::selection {
+    @apply bg-main text-dark;
+  } */
+}
