@@ -61,8 +61,9 @@
   }
 
   /* Base Styles */
+  html,
   body {
-    @apply scroll-smooth bg-dark text-light;
+    @apply scroll-smooth bg-dark text-light cursor-none;
   }
   p,
   a {
@@ -81,4 +82,25 @@
   /* ::selection {
     @apply bg-main text-dark;
   } */
+}
+
+@layer utilities {
+  .curve {
+    height: calc(100% + 300px);
+  }
+
+  .circ {
+    @apply absolute bottom-[-100%] left-0 bg-light/70 h-full w-[100%] rounded-[50%] z-[1] transition-all duration-[0.4s];
+  }
+  button:hover .circ {
+    @apply bottom-0 rounded-[25%];
+  }
+  button:hover p {
+    @apply md:text-dark;
+  }
+
+  .clip-video {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    transition: clip-path 0.5s ease-in-out;
+  }
 }
